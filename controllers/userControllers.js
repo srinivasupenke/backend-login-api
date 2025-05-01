@@ -5,7 +5,7 @@ const userLogin = async (req, res) => {
 
   try {
     if (username === process.env.ADMIN_LOGIN_USERNAME && password === process.env.ADMIN_LOGIN_PASSWORD) {
-      const token = jwt.sign(username + password, process.env.JWT_SECRET);
+      const jwt_token = jwt.sign(username + password, process.env.JWT_SECRET);
       res.json({ success: true, jwt_token });
     } else {
       res.json({ success: false, message: "Invalid Crenditials" });
